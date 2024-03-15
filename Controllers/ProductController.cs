@@ -51,8 +51,8 @@ namespace Njal_back.Controllers
         //}
 
         [HttpPut]
-        [Route("update/{id:Guid}")]
-        public async Task<IActionResult> UpdateProduct([FromRoute] Guid id, [FromBody] ProductDto updateProductDto)
+        [Route("update/{id}")]
+        public async Task<IActionResult> UpdateProduct([FromRoute] int id, [FromBody] ProductDto updateProductDto)
         {
             var productFromDb = await uow.ProductRepository.UpdateProduct(id, updateProductDto);
             mapper.Map(updateProductDto, productFromDb);
@@ -63,8 +63,8 @@ namespace Njal_back.Controllers
         // update designer name only
 
         [HttpPut]
-        [Route("updateDesignerName/{id:Guid}")]
-        public async Task<IActionResult> UpdateDesignerName([FromRoute] Guid id, [FromBody] DesignerNameDto updateDesignerNameDto)
+        [Route("updateDesignerName/{id}")]
+        public async Task<IActionResult> UpdateDesignerName([FromRoute] int id, [FromBody] DesignerNameDto updateDesignerNameDto)
         {
             var designerNameFromDb = await uow.ProductRepository.UpdateDesignerName(id, updateDesignerNameDto);
             mapper.Map(updateDesignerNameDto, designerNameFromDb);
@@ -75,8 +75,8 @@ namespace Njal_back.Controllers
         // update product name only
 
         [HttpPut]
-        [Route("updateProductName/{id:Guid}")]
-        public async Task<IActionResult> UpdateProductName([FromRoute] Guid id, [FromBody] ProductNameDto updateProductNameDto)
+        [Route("updateProductName/{id}")]
+        public async Task<IActionResult> UpdateProductName([FromRoute] int id, [FromBody] ProductNameDto updateProductNameDto)
         {
             var productNameFromDb = await uow.ProductRepository.UpdateProductName(id, updateProductNameDto);
             mapper.Map(updateProductNameDto, productNameFromDb);
@@ -87,8 +87,8 @@ namespace Njal_back.Controllers
         // Update price only
 
         [HttpPut]
-        [Route("updatePrice/{id:Guid}")]
-        public async Task<IActionResult> UpdatePrice([FromRoute] Guid id, [FromBody] PriceDto updatePriceDto)
+        [Route("updatePrice/{id}")]
+        public async Task<IActionResult> UpdatePrice([FromRoute] int id, [FromBody] PriceDto updatePriceDto)
         {
             var priceFromDb = await uow.ProductRepository.UpdatePrice(id, updatePriceDto);
             mapper.Map(updatePriceDto, priceFromDb);
@@ -97,7 +97,8 @@ namespace Njal_back.Controllers
         }
 
 
-        // update - patch currently not using 
+        // update - patch currently not using
+        // 
         //[HttpPatch]
         //[Route("update/{id:Guid}")]
         //public async Task<IActionResult> UpdateProductsPatch([FromRoute] Guid id, [FromBody] JsonPatchDocument<Product> updateProductRequest)
@@ -111,8 +112,8 @@ namespace Njal_back.Controllers
 
         // Delete
         [HttpDelete]
-        [Route("delete/{id:Guid}")]
-        public async Task<IActionResult> DeleteProduct(Guid id)
+        [Route("delete/{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
         {
             uow.ProductRepository.DeleteProduct(id);
             await uow.SaveAsync();

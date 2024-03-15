@@ -12,20 +12,20 @@ namespace Njal_back.Interfaces
         // Post
         void AddProduct(Product product);
         //Delete
-        void DeleteProduct(Guid productId);
+        void DeleteProduct(int productId);
         // Find Product
         //Task<Product> UpdateProduct(Guid productId, Product updateProductRequest);
-        Task<Product> UpdateProduct(Guid productId, ProductDto updateProductRequest);
+        Task<Product> UpdateProduct(int productId, ProductDto updateProductRequest);
 
         // Update designer name
-        Task<Product> UpdateDesignerName(Guid productId, DesignerNameDto updateDesignerNameReq);
+        Task<Product> UpdateDesignerName(int productId, DesignerNameDto updateDesignerNameReq);
         
         // Update product name 
-        Task<Product> UpdateProductName(Guid productId, ProductNameDto updateProductNameReq);
+        Task<Product> UpdateProductName(int productId, ProductNameDto updateProductNameReq);
 
 
         // Update price
-        Task<Product> UpdatePrice(Guid productId, PriceDto updatePriceReq);
+        Task<Product> UpdatePrice(int productId, PriceDto updatePriceReq);
 
         // Find Patch currently not using 
         //Task<Product> FindPatchProduct(Guid id, JsonPatchDocument<Product> updateProductRequest);

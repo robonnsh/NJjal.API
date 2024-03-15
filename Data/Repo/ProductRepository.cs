@@ -23,7 +23,7 @@ namespace Njal_back.Data.Repo
         }
 
         // Delete
-        public void DeleteProduct(Guid productId)
+        public void DeleteProduct(int productId)
         {
             var product = dc.Products.Find(productId);
             dc.Products.Remove(product);
@@ -36,7 +36,7 @@ namespace Njal_back.Data.Repo
         }
 
         // Put - update whole product
-        public async Task<Product> UpdateProduct(Guid productId, ProductDto updateProductRequest)
+        public async Task<Product> UpdateProduct(int productId, ProductDto updateProductRequest)
         {
             var product = await dc.Products.FindAsync(productId);
 
@@ -50,7 +50,7 @@ namespace Njal_back.Data.Repo
         }
 
         // Put - update designer name
-        public async Task<Product> UpdateDesignerName(Guid productId, DesignerNameDto updateDesignerNameReq)
+        public async Task<Product> UpdateDesignerName(int productId, DesignerNameDto updateDesignerNameReq)
         {
             var designerName = await dc.Products.FindAsync(productId);
             designerName.DesignerName = updateDesignerNameReq.DesignerName;
@@ -59,14 +59,14 @@ namespace Njal_back.Data.Repo
         }
 
         // Put - update product name 
-        public async Task<Product> UpdateProductName(Guid productId, ProductNameDto updateProductNameReq)
+        public async Task<Product> UpdateProductName(int productId, ProductNameDto updateProductNameReq)
         {
             var productName = await dc.Products.FindAsync(productId);
             productName.ProductName = updateProductNameReq.ProductName;
             await dc.SaveChangesAsync();
             return productName;
         }
-        public async Task<Product> UpdatePrice(Guid productId, PriceDto updatePriceReq)
+        public async Task<Product> UpdatePrice(int productId, PriceDto updatePriceReq)
         {
             var price = await dc.Products.FindAsync(productId);
             price.Price = updatePriceReq.Price;
