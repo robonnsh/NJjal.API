@@ -56,7 +56,7 @@ namespace Njal_back.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(1),
+                Expires = DateTime.UtcNow.AddMinutes(0.5),
                 SigningCredentials = signingCredentials
             };
 

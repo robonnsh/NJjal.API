@@ -37,7 +37,7 @@ namespace Njal_back.Controllers
             var product = mapper.Map<Product>(productDto);
             uow.ProductRepository.AddProduct(product);
             await uow.SaveAsync();
-            return StatusCode(201);
+            return Ok(product);
         }
 
         // update whole product - Put  
