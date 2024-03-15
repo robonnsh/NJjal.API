@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Njal_back.DTOS;
 using Njal_back.Interfaces;
@@ -6,9 +7,9 @@ using Njal_back.Models;
 
 namespace Njal_back.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductController : ControllerBase
+    // add authorization if needed
+    //[Authorize]
+    public class ProductController : BaseController
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
