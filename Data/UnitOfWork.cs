@@ -18,5 +18,9 @@ namespace Njal_back.Data
         {
             return await dc.SaveChangesAsync() > 0;
         }
+
+        public IUserRepository UserRepository => 
+            new UserRepository(dc);
+
     }
 }

@@ -8,5 +8,7 @@ namespace Njal_back.Data
         public NjalDbContext(DbContextOptions<NjalDbContext> options) : base(options) { }
         
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }
