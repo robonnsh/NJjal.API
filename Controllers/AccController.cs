@@ -37,8 +37,21 @@ namespace Njal_back.Controllers
             return Ok(loginRes);
         }
 
-        // symetric encryption
-        private string CreateJWT(User user)
+        //api/Acc/register
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(LoginReqDto loginReq)
+        {
+            if (await uow.UserRepository.UserAlreadyExist(loginReq.Username))
+                return BadRequest("User already exists");
+            uow.UserRepository.Register(loginReq.Username, loginReq.Password);
+            await uow.SaveAsync();
+            return StatusCode(201);
+        }
+        
+           
+
+            // symetric encryption
+            private string CreateJWT(User user)
         {
             var secretKey = cfg.GetSection("AppSettings:Key").Value;
             var key = new SymmetricSecurityKey(Encoding.UTF32
