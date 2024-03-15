@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Njal_back.Data;
 
@@ -10,9 +11,11 @@ using Njal_back.Data;
 namespace Njal_back.Migrations
 {
     [DbContext(typeof(NjalDbContext))]
-    partial class NjalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240315145809_AddUser")]
+    partial class AddUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
